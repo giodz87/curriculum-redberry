@@ -131,7 +131,9 @@ export default function Home() {
           <div className="flex flex-col items-start gap-1 relative">
             <label className=" text-[14px] font-normal ">Phone Number</label>
             <input
-              type="text"
+              type="tel"
+              placeholder="123-456-789"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               {...register("number", {
                 required: "Please enter phone number.",
               })}

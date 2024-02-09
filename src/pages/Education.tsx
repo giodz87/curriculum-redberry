@@ -1,9 +1,4 @@
-import {
-  useForm,
-  SubmitHandler,
-  useFieldArray,
-  FieldValues,
-} from "react-hook-form";
+import { useForm, SubmitHandler, useFieldArray } from "react-hook-form";
 import { useUserContext } from "../context";
 import { useNavigate } from "react-router-dom";
 
@@ -38,8 +33,10 @@ export default function Education() {
   });
 
   const onSubmit: SubmitHandler<InputsForm> = (data) => {
-    navigate("/experience");
+    context.setSchool(data.school);
+    navigate("");
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -48,6 +45,9 @@ export default function Education() {
           <input
             type="text"
             {...register("school", { required: "Please enter scool name" })}
+            onChange={(e) => {
+              context.setSchool(e.target.value);
+            }}
           />
           {errors.school && (
             <p className=" absolute  bottom-[-20px] text-[12px] font-bold text-red-400">
@@ -56,10 +56,7 @@ export default function Education() {
           )}
         </div>
 
-        <div>
-          <input type="list" />
-          <input type="date" />
-        </div>
+        <div></div>
 
         <div>
           {fields.map((item, index) => (

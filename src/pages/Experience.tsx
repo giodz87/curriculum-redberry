@@ -18,7 +18,11 @@ export default function Experience() {
     formState: { errors },
   } = useForm<InputsForm>();
   const onSubmit: SubmitHandler<InputsForm> = (data) => {
-    console.log(data);
+    context.setPosition(data.position);
+    context.setEmployer(data.employer);
+    context.setStartNumber(data.startNumber);
+    context.setEndNumber(data.endNumber);
+    context.setDescription(data.description);
   };
   return (
     <div className="flex flex-row items-start justify-start gap-20 w-full px-28 pt-10 ">
