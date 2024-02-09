@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MyContext } from "./context";
 import Home from "./pages/Home";
 import { useEffect, useState } from "react";
+import Experience from "./pages/Experience";
 
 export type MyContextProps = {
   name: string;
@@ -16,6 +17,16 @@ export type MyContextProps = {
   setEmail: (value: string) => void;
   number: string;
   setNumber: (value: string) => void;
+  position: string;
+  setPosition: (value: string) => void;
+  employer: string;
+  setEmployer: (value: string) => void;
+  startNumber: string;
+  setStartNumber: (value: string) => void;
+  endNumber: string;
+  setEndNumber: (value: string) => void;
+  description: string;
+  setDescription: (value: string) => void;
 };
 function App() {
   const [name, setName] = useState<string>("");
@@ -24,6 +35,13 @@ function App() {
   const [about, setAbout] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [number, setNumber] = useState<string>("");
+
+  const [position, setPosition] = useState<string>("");
+  const [employer, setEmployer] = useState<string>("");
+  const [startNumber, setStartNumber] = useState<string>("");
+  const [endNumber, setEndNumber] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+
   useEffect(() => {}, []);
 
   return (
@@ -41,11 +59,22 @@ function App() {
         setEmail,
         number,
         setNumber,
+        position,
+        setPosition,
+        employer,
+        setEmployer,
+        startNumber,
+        setStartNumber,
+        endNumber,
+        setEndNumber,
+        description,
+        setDescription,
       }}
     >
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Home />} />
+          <Route path="/experience" element={<Experience />} />
         </Routes>
       </BrowserRouter>
     </MyContext.Provider>

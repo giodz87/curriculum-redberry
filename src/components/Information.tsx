@@ -19,6 +19,13 @@ export default function Information() {
           alt=""
         />
       )}
+      <section>
+        <p>{context.position}</p>
+        <p>{context.employer}</p>
+        <p>{context.startNumber}</p>
+        <p>{context.endNumber}</p>
+        <p>{context.description}</p>
+      </section>
     </article>
   );
 }

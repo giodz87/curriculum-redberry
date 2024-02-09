@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useUserContext } from "../context";
-import Information from "../components/information";
-
+import Information from "../components/Information";
+import { useNavigate } from "react-router-dom";
 type InputsForm = {
   firstName: string;
   lastName: string;
@@ -11,6 +11,8 @@ type InputsForm = {
 };
 
 export default function Home() {
+  const context = useUserContext();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -23,8 +25,10 @@ export default function Home() {
     context.setAbout(data.aboutMe);
     context.setEmail(data.email);
     context.setNumber(data.number);
+
+    navigate("/experience");
   };
-  const context = useUserContext();
+
   return (
     <div className="flex flex-row items-start justify-start gap-20 w-full px-28 pt-10 ">
       <article className="flex flex-col items-start justify-between gap-10">
@@ -93,7 +97,7 @@ export default function Home() {
               {...register("aboutMe", {
                 required: "Please provide information about yourself.",
               })}
-              className="w-[798px] h-[150px]"
+              className="w-[798px] h-[150px] resize-none"
               onChange={(e) => context.setAbout(e.target.value)}
             />
             {errors.aboutMe && (
