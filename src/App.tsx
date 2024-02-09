@@ -3,6 +3,7 @@ import { MyContext } from "./context";
 import Home from "./pages/Home";
 import { useEffect, useState } from "react";
 import Experience from "./pages/Experience";
+import Education from "./pages/Education";
 
 export type MyContextProps = {
   name: string;
@@ -27,6 +28,13 @@ export type MyContextProps = {
   setEndNumber: (value: string) => void;
   description: string;
   setDescription: (value: string) => void;
+
+  school: string;
+  setSchool: (value: string) => void;
+  quality: string;
+  setQuality: (value: string) => void;
+  graduation: string;
+  setGraduation: (value: string) => void;
 };
 function App() {
   const [name, setName] = useState<string>("");
@@ -41,6 +49,10 @@ function App() {
   const [startNumber, setStartNumber] = useState<string>("");
   const [endNumber, setEndNumber] = useState<string>("");
   const [description, setDescription] = useState<string>("");
+
+  const [school, setSchool] = useState<string>("");
+  const [quality, setQuality] = useState<string>("");
+  const [graduation, setGraduation] = useState<string>("");
 
   useEffect(() => {}, []);
 
@@ -69,12 +81,19 @@ function App() {
         setEndNumber,
         description,
         setDescription,
+        school,
+        setSchool,
+        quality,
+        setQuality,
+        graduation,
+        setGraduation,
       }}
     >
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Home />} />
           <Route path="/experience" element={<Experience />} />
+          <Route path="/education" element={<Education />} />
         </Routes>
       </BrowserRouter>
     </MyContext.Provider>

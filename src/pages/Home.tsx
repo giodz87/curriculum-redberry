@@ -19,6 +19,7 @@ export default function Home() {
 
     formState: { errors },
   } = useForm<InputsForm>();
+
   const onSubmit: SubmitHandler<InputsForm> = (data) => {
     context.setName(data.firstName);
     context.setLastName(data.lastName);
