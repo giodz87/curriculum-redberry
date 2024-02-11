@@ -1,4 +1,3 @@
-import { Divider } from "antd";
 import { useUserContext } from "../context";
 import { FaPhoneAlt } from "react-icons/fa";
 export default function Information() {
@@ -26,12 +25,15 @@ export default function Information() {
               </div>
             )}
           </div>
-          {context.about && (
-            <div className=" text-[14px] w-[370px] font-normal">
-              <strong className=" text-red-600 text-[18px]">About Me</strong>
-              <p>{context.about}</p>
-            </div>
-          )}
+
+          <div className=" text-[14px] w-[370px] font-normal">
+            {context.about && (
+              <div className=" text-[14px] w-[370px] font-normal">
+                <strong className=" text-red-600 text-[18px]">About Me</strong>
+                <p>{context.about}</p>
+              </div>
+            )}
+          </div>
         </div>
         {context.personalImg && (
           <img
@@ -46,7 +48,7 @@ export default function Information() {
       )}
 
       <section className=" flex flex-col items-start justify-between gap-3">
-        {context && (
+        {context.position && (
           <strong className=" text-red-600 text-[18px]">experience</strong>
         )}
         <div className=" text-[14px] font-normal">
@@ -58,13 +60,25 @@ export default function Information() {
             <p>{context.endNumber}</p>
           </div>
         </div>
-        <p className=" text-[14px] font-normal">{context.description}</p>
+        <p className=" text-[14px] font-normal w-[600px]">
+          {context.description}
+        </p>
       </section>
+      {context.position && (
+        <div className=" w-[600px] h-[1px] bg-black my-6 opacity-50"> </div>
+      )}
       <section>
-        <p>{context.school}</p>
-        <p>{context.quality}</p>
+        {context.school && (
+          <strong className=" text-red-600 text-[18px]">education</strong>
+        )}
+        <div className="flex flex-row items-center gap-2">
+          <p>{context.school}</p>
+          <p>{context.quality}</p>
+        </div>
         <p>{context.graduation}</p>
-        <p>{context.workDescription}</p>
+        <p className=" text-[14px] font-normal w-[600px]">
+          {context.workDescription}
+        </p>
       </section>
     </article>
   );

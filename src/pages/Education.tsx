@@ -38,22 +38,28 @@ export default function Education() {
 
   const onSubmit: SubmitHandler<InputsForm> = (data) => {
     context.setSchool(data.school);
+    context.setQuality(data.quality);
+    context.setGraduation(data.graduation);
+    context.setWorkDescription(data.workDescription);
     navigate("");
   };
 
   return (
-    <div className="flex flex-row items-start justify-start gap-20 w-full px-28 pt-10 ">
+    <div className="flex flex-row items-start justify-start gap-20 w-full px-16 pt-10 ">
       <article className="flex flex-col items-start justify-between gap-10">
         <div>
           <p>personal information</p>
           <div className=" w-[798px] h-[1px] bg-black"> </div>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col items-start justify-between gap-12"
+        >
           <div className="flex flex-col items-start gap-1 relative">
             <label className=" text-[14px] font-normal ">school</label>
             <input
               type="text"
-              className=" w-[798px] h-10"
+              className=" w-[798px] h-10 px-3"
               {...register("school", { required: "Please enter scool name" })}
               onChange={(e) => {
                 context.setSchool(e.target.value);
@@ -72,6 +78,9 @@ export default function Education() {
 
               <Space wrap>
                 <Select
+                  {...register("quality", {
+                    required: "Please enter your quality",
+                  })}
                   placeholder="Choose a degree"
                   style={{ width: 360, height: 40 }}
                   options={[
@@ -106,19 +115,14 @@ export default function Education() {
               </label>
               <input
                 type="date"
-                className="w-[360px] h-10 px-3"
+                className="w-[360px] h-10 px-3  opacity-50"
                 {...register("graduation", {
-                  required: "Please enter quality ",
+                  required: "Please enter graduation day ",
                 })}
                 onChange={(e) => {
                   context.setGraduation(e.target.value);
                 }}
               />
-              {errors.graduation && (
-                <p className=" absolute  bottom-[-20px] text-[12px] font-bold text-red-400">
-                  {errors.graduation.message}
-                </p>
-              )}
             </div>
           </div>
 
@@ -128,7 +132,7 @@ export default function Education() {
               {...register("workDescription", {
                 required: "Please provide information about description.",
               })}
-              className="w-[798px] h-[150px] resize-none"
+              className="w-[798px] h-[150px] px-3 py-3 resize-none"
               onChange={(e) => {
                 context.setWorkDescription(e.target.value);
               }}
@@ -147,8 +151,12 @@ export default function Education() {
                 </button>
               </div>
             ))}
-            <button type="button" onClick={() => append({ name: "" })}>
-              Add Item
+            <button
+              className="bg-[#62A1EB]  py-5 px-14  text-white text-[14px] rounded-xl"
+              type="button"
+              onClick={() => append({ name: "" })}
+            >
+              add more experience
             </button>
           </div>
           <div className=" flex flex-row items-center justify-between w-[789px]">
