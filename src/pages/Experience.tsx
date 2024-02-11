@@ -112,15 +112,15 @@ export default function Experience() {
           <button className="bg-[#62A1EB]  py-5 px-14  text-white text-[14px] rounded-xl">
             add more experience
           </button>
+          <div className=" flex flex-row items-center justify-between w-[789px]">
+            <button className="w-40 h-12 bg-[#6B40E3] text-white" type="submit">
+              Back
+            </button>{" "}
+            <button className="w-40 h-12 bg-[#6B40E3] text-white" type="submit">
+              Next
+            </button>
+          </div>
         </form>
-        <div className=" flex flex-row items-center justify-between w-[789px]">
-          <button className="w-40 h-12 bg-[#6B40E3] text-white" type="submit">
-            Back
-          </button>{" "}
-          <button className="w-40 h-12 bg-[#6B40E3] text-white" type="submit">
-            Next
-          </button>
-        </div>
       </article>
       <Information />
     </div>

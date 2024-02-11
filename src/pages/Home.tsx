@@ -31,7 +31,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-row items-start justify-start gap-20 w-full px-28 pt-10 ">
+    <div className="flex flex-row items-start justify-start gap-20 w-full  px-16 pt-10 ">
       <article className="flex flex-col items-start justify-between gap-10">
         <div>
           <p>personal information</p>
@@ -49,7 +49,7 @@ export default function Home() {
                 {...register("firstName", {
                   required: "Please enter first name.",
                 })}
-                className="w-[380px] h-10"
+                className="w-[380px] h-10 px-3"
                 onChange={(e) => context.setName(e.target.value)}
               />
               {errors.firstName && (
@@ -66,7 +66,7 @@ export default function Home() {
                 {...register("lastName", {
                   required: "Please enter last name.",
                 })}
-                className="w-[380px] h-10"
+                className="w-[380px] h-10 px-3"
                 onChange={(e) => context.setLastName(e.target.value)}
               />
               {errors.lastName && (
@@ -98,7 +98,7 @@ export default function Home() {
               {...register("aboutMe", {
                 required: "Please provide information about yourself.",
               })}
-              className="w-[798px] h-[150px] resize-none"
+              className="w-[798px] h-[150px] resize-none px-3 py-3"
               onChange={(e) => context.setAbout(e.target.value)}
             />
             {errors.aboutMe && (
@@ -118,7 +118,7 @@ export default function Home() {
                   message: "Invalid email address",
                 },
               })}
-              className="w-[380px] h-10"
+              className="w-[380px] h-10 px-3"
               onChange={(e) => context.setEmail(e.target.value)}
             />
             {errors.email && (
@@ -133,11 +133,11 @@ export default function Home() {
             <input
               type="tel"
               placeholder="123-456-789"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
               {...register("number", {
                 required: "Please enter phone number.",
               })}
-              className="w-[380px] h-10"
+              className="w-[380px] h-10 px-3"
               onChange={(e) => context.setNumber(e.target.value)}
             />
             {errors.number && (

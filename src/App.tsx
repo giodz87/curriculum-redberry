@@ -35,6 +35,8 @@ export type MyContextProps = {
   setQuality: (value: string) => void;
   graduation: string;
   setGraduation: (value: string) => void;
+  workDescription: string;
+  setWorkDescription: (value: string) => void;
 };
 function App() {
   const [name, setName] = useState<string>("");
@@ -53,6 +55,7 @@ function App() {
   const [school, setSchool] = useState<string>("");
   const [quality, setQuality] = useState<string>("");
   const [graduation, setGraduation] = useState<string>("");
+  const [workDescription, setWorkDescription] = useState<string>("");
 
   useEffect(() => {}, []);
 
@@ -87,6 +90,8 @@ function App() {
         setQuality,
         graduation,
         setGraduation,
+        workDescription,
+        setWorkDescription,
       }}
     >
       <BrowserRouter>
