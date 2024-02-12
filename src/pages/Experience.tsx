@@ -22,6 +22,9 @@ export default function Experience() {
 
     formState: { errors },
   } = useForm<InputsForm>();
+  const countPage = () => {
+    context.setCount(context.count + 1);
+  };
   const onSubmit: SubmitHandler<InputsForm> = (data) => {
     context.setPosition(data.position);
     context.setEmployer(data.employer);
@@ -29,18 +32,24 @@ export default function Experience() {
     context.setEndNumber(data.endNumber);
     context.setDescription(data.description);
     navigate("/education");
+    countPage();
   };
 
   const { fields, append, remove } = useFieldArray({
     control,
     name: "items",
   });
-
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <div className="flex flex-row items-start justify-start gap-20 w-full px-16 pt-10 ">
       <article className="flex flex-col items-start justify-between gap-10">
         <div>
-          <p>personal information</p>
+          <div className=" flex  flex-row items-center  justify-between">
+            <p className=" pb-3 text-[24px] font-bold">personal information</p>
+            <p>{context.count}/3</p>
+          </div>
           <div className=" w-[798px] h-[1px] bg-black"> </div>
         </div>
         <form
@@ -144,7 +153,13 @@ export default function Experience() {
             </button>
           </div>
           <div className=" flex flex-row items-center justify-between w-[789px]">
-            <button className="w-40 h-12 bg-[#6B40E3] text-white" type="submit">
+            <button
+              onClick={() => {
+                goBack();
+              }}
+              className="w-40 h-12 bg-[#6B40E3] text-white"
+              type="submit"
+            >
               Back
             </button>{" "}
             <button className="w-40 h-12 bg-[#6B40E3] text-white" type="submit">

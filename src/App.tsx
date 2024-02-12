@@ -4,8 +4,12 @@ import Home from "./pages/Home";
 import { useEffect, useState } from "react";
 import Experience from "./pages/Experience";
 import Education from "./pages/Education";
+import Information from "./components/Information";
 
 export type MyContextProps = {
+  count: number;
+  setCount: (value: number) => void;
+
   name: string;
   setName: (value: string) => void;
   lastName: string;
@@ -39,6 +43,8 @@ export type MyContextProps = {
   setWorkDescription: (value: string) => void;
 };
 function App() {
+  const [count, setCount] = useState<number>(1);
+
   const [name, setName] = useState<string>("");
   const [lastName, setLastName] = useState<string>("");
   const [personalImg, setPersonalImg] = useState<File | null>(null);
@@ -62,6 +68,8 @@ function App() {
   return (
     <MyContext.Provider
       value={{
+        count,
+        setCount,
         name,
         setName,
         lastName,
@@ -99,6 +107,7 @@ function App() {
           <Route path={"/"} element={<Home />} />
           <Route path="/experience" element={<Experience />} />
           <Route path="/education" element={<Education />} />
+          <Route path="/information" element={<Information />} />
         </Routes>
       </BrowserRouter>
     </MyContext.Provider>

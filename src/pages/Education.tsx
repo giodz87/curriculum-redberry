@@ -24,10 +24,6 @@ export default function Education() {
     formState: { errors },
   } = useForm<InputsForm>({
     defaultValues: {
-      school: "",
-      quality: "",
-      graduation: "",
-      description: "",
       items: [{ name: "" }],
     },
   });
@@ -35,20 +31,26 @@ export default function Education() {
     control,
     name: "items",
   });
-
+  const countPage = () => {
+    context.setCount(context.count + 1);
+  };
   const onSubmit: SubmitHandler<InputsForm> = (data) => {
     context.setSchool(data.school);
     context.setQuality(data.quality);
     context.setGraduation(data.graduation);
     context.setWorkDescription(data.workDescription);
-    navigate("");
+    navigate("/information");
+    countPage();
   };
 
   return (
     <div className="flex flex-row items-start justify-start gap-20 w-full px-16 pt-10 ">
       <article className="flex flex-col items-start justify-between gap-10">
         <div>
-          <p>personal information</p>
+          <div className=" flex  flex-row items-center  justify-between">
+            <p className=" pb-3 text-[24px] font-bold">personal information</p>
+            <p>{context.count}/3</p>
+          </div>
           <div className=" w-[798px] h-[1px] bg-black"> </div>
         </div>
         <form
