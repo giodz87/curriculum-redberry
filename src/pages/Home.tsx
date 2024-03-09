@@ -51,8 +51,11 @@ export default function Home() {
           <section className="flex flex-row items-center justify-between gap-10">
             <div className="flex flex-col items-start gap-1 relative">
               <label className=" text-[14px] font-normal ">First Name</label>
+
               <input
                 type="text"
+                minLength={1}
+                maxLength={8}
                 {...register("firstName", {
                   required: "Please enter first name.",
                 })}
@@ -70,6 +73,8 @@ export default function Home() {
               <label className=" text-[14px] font-normal ">Last Name</label>
               <input
                 type="text"
+                minLength={1}
+                maxLength={10}
                 {...register("lastName", {
                   required: "Please enter last name.",
                 })}
@@ -90,6 +95,7 @@ export default function Home() {
 
             <input
               type="file"
+              className="text-[12px]"
               onChange={(e) => {
                 const selectedFile = e.target.files && e.target.files[0];
 
@@ -154,7 +160,10 @@ export default function Home() {
             )}
           </div>
 
-          <button className="w-40 h-12 bg-[#6B40E3] text-white" type="submit">
+          <button
+            className="w-40 h-12 bg-[#6B40E3] text-white rounded-xl cursor-pointer mb-10"
+            type="submit"
+          >
             Next
           </button>
         </form>

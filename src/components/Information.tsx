@@ -4,12 +4,12 @@ export default function Information() {
   const context = useUserContext();
   return (
     <article className="flex flex-col items-start justify-center ">
-      <section className=" flex flex-row items-start justify-between w-full ">
+      <section className=" flex flex-row items-start justify-between w-[550px] ">
         <div className=" flex flex-col items-start justify-between gap-3">
-          <div className="flex flex-row items-center justify-center gap-2 text-[32px] font-bold text-red-600">
+          <div className="flex flex-row items-center justify-center gap-2 text-[32px] font-bold text-red-600 ">
             {" "}
-            <p>{context.name}</p>
-            <p>{context.lastName}</p>
+            <p>{context.name} </p>
+            <p> {context.lastName}</p>
           </div>
           <div className="flex flex-col items-start justify-start">
             {context.email && (
