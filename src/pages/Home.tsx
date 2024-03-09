@@ -35,7 +35,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-row items-start justify-start gap-20 w-full  px-16 pt-10 ">
+    <div className="flex flex-row items-start justify-start gap-20 w-full  px-16 ">
       <article className="flex flex-col items-start justify-between gap-10">
         <div>
           <div className=" flex  flex-row items-center  justify-between">

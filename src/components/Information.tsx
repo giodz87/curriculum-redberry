@@ -3,7 +3,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 export default function Information() {
   const context = useUserContext();
   return (
-    <article className="flex flex-col items-start justify-center">
+    <article className="flex flex-col items-start justify-center ">
       <section className=" flex flex-row items-start justify-between w-full ">
         <div className=" flex flex-col items-start justify-between gap-3">
           <div className="flex flex-row items-center justify-center gap-2 text-[32px] font-bold text-red-600">
@@ -30,7 +30,9 @@ export default function Information() {
             {context.about && (
               <div className=" text-[14px] w-[370px] font-normal">
                 <strong className=" text-red-600 text-[18px]">About Me</strong>
-                <p>{context.about}</p>
+                <p className=" text-[16px] font-normal w-[600px]">
+                  {context.about}
+                </p>
               </div>
             )}
           </div>
@@ -61,11 +63,15 @@ export default function Information() {
 
                   <p>{exp.employer}</p>
                   <div className=" flex flex-row items-center gap-2 opacity-50">
-                    <p>{exp.startNumber}</p>
-                    <p>{exp.endNumber}</p>
+                    <p className=" py-2  opacity-50 text-[12px]">
+                      {exp.startNumber}
+                    </p>
+                    <p className=" py-2  opacity-50 text-[12px]">
+                      {exp.endNumber}
+                    </p>
                   </div>
                 </div>
-                <p className=" text-[14px] font-normal w-[600px]">
+                <p className=" text-[16px] font-normal w-[600px]">
                   {exp.description}
                 </p>
 
@@ -89,10 +95,16 @@ export default function Information() {
                   <p>{item.school}</p>
                   <p>{item.quality}</p>
                 </div>
-                <p>{item.graduation}</p>
-                <p className=" text-[14px] font-normal w-[600px]">
+                <p className="w-[360px] h-10  opacity-50 text-[12px]">
+                  {item.graduation}
+                </p>
+                <p className=" text-[16px] font-normal w-[600px]">
                   {item.workDescription}
                 </p>
+
+                <div className=" w-[600px] h-[1px] bg-black my-6 opacity-50">
+                  {" "}
+                </div>
               </div>
             )}
           </div>

@@ -59,7 +59,7 @@ export default function Education() {
   }, [watchedFields]);
 
   return (
-    <div className="flex flex-row items-start justify-start gap-20 w-full px-16 pt-10 ">
+    <div className="flex flex-row items-start justify-start gap-20 w-full px-16   h-[100%]">
       <article className="flex flex-col items-start justify-between gap-10">
         <div>
           <div className=" flex  flex-row items-center  justify-between">
@@ -74,7 +74,10 @@ export default function Education() {
         >
           {fields.map((item, index) => {
             return (
-              <section key={item.id}>
+              <section
+                key={item.id}
+                className=" flex flex-col items-start justify-between gap-10"
+              >
                 <div className="flex flex-col items-start gap-1 relative">
                   <label className=" text-[14px] font-normal ">school</label>
                   <input
@@ -161,6 +164,7 @@ export default function Education() {
                     </p>
                   )}
                 </div>
+
                 {index !== 0 && (
                   <button
                     className="w-40 h-12 bg-[#62A1EB]  text-white rounded-xl cursor-pointer"
@@ -175,7 +179,7 @@ export default function Education() {
           })}
           <div>
             <button
-              className="bg-[#62A1EB]  py-5 px-14  text-white text-[14px] rounded-xl"
+              className="bg-[#62A1EB]  py-5 px-14  text-white text-[14px] rounded-xl cursor-pointer"
               type="button"
               onClick={() =>
                 append({
@@ -191,10 +195,16 @@ export default function Education() {
             </button>
           </div>
           <div className=" flex flex-row items-center justify-between w-[789px]">
-            <button className="w-40 h-12 bg-[#6B40E3] text-white" type="submit">
+            <button
+              className="w-40 h-12 bg-[#6B40E3] text-white rounded-xl cursor-pointer mb-10"
+              type="submit"
+            >
               Back
             </button>{" "}
-            <button className="w-40 h-12 bg-[#6B40E3] text-white" type="submit">
+            <button
+              className="w-40 h-12 bg-[#6B40E3] text-white rounded-xl cursor-pointer mb-10"
+              type="submit"
+            >
               Next
             </button>
           </div>

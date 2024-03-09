@@ -58,7 +58,7 @@ export default function Experience() {
   };
 
   return (
-    <div className="flex flex-row items-start justify-start gap-20 w-full px-16 pt-10 ">
+    <div className="flex flex-row items-start justify-start gap-20 w-full px-16 ">
       <article className="flex flex-col items-start justify-between ">
         <div>
           <div className=" flex  flex-row items-center  justify-between">
