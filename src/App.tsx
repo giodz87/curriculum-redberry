@@ -6,6 +6,22 @@ import Experience from "./pages/Experience";
 import Education from "./pages/Education";
 import Information from "./components/Information";
 
+type ExperienceType = {
+  position: string;
+  employer: string;
+  startNumber: string;
+  endNumber: string;
+  description: string;
+};
+
+type EducationType = {
+  school: string;
+  quality: string;
+  graduation: string;
+  description: string;
+  workDescription: string;
+};
+
 export type MyContextProps = {
   count: number;
   setCount: (value: number) => void;
@@ -22,25 +38,12 @@ export type MyContextProps = {
   setEmail: (value: string) => void;
   number: string;
   setNumber: (value: string) => void;
-  position: string;
-  setPosition: (value: string) => void;
-  employer: string;
-  setEmployer: (value: string) => void;
-  startNumber: string;
-  setStartNumber: (value: string) => void;
-  endNumber: string;
-  setEndNumber: (value: string) => void;
-  description: string;
-  setDescription: (value: string) => void;
 
-  school: string;
-  setSchool: (value: string) => void;
-  quality: string;
-  setQuality: (value: string) => void;
-  graduation: string;
-  setGraduation: (value: string) => void;
-  workDescription: string;
-  setWorkDescription: (value: string) => void;
+  experience: ExperienceType[] | [];
+  setExperience: (value: ExperienceType[] | []) => void;
+
+  education: EducationType[] | [];
+  setEducation: (value: EducationType[] | []) => void;
 };
 function App() {
   const [count, setCount] = useState<number>(1);
@@ -52,16 +55,9 @@ function App() {
   const [email, setEmail] = useState<string>("");
   const [number, setNumber] = useState<string>("");
 
-  const [position, setPosition] = useState<string>("");
-  const [employer, setEmployer] = useState<string>("");
-  const [startNumber, setStartNumber] = useState<string>("");
-  const [endNumber, setEndNumber] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
+  const [experience, setExperience] = useState<ExperienceType[] | []>([]);
 
-  const [school, setSchool] = useState<string>("");
-  const [quality, setQuality] = useState<string>("");
-  const [graduation, setGraduation] = useState<string>("");
-  const [workDescription, setWorkDescription] = useState<string>("");
+  const [education, setEducation] = useState<EducationType[] | []>([]);
 
   useEffect(() => {}, []);
 
@@ -82,24 +78,10 @@ function App() {
         setEmail,
         number,
         setNumber,
-        position,
-        setPosition,
-        employer,
-        setEmployer,
-        startNumber,
-        setStartNumber,
-        endNumber,
-        setEndNumber,
-        description,
-        setDescription,
-        school,
-        setSchool,
-        quality,
-        setQuality,
-        graduation,
-        setGraduation,
-        workDescription,
-        setWorkDescription,
+        experience,
+        setExperience,
+        education,
+        setEducation,
       }}
     >
       <BrowserRouter>

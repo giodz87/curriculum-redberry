@@ -48,37 +48,55 @@ export default function Information() {
       )}
 
       <section className=" flex flex-col items-start justify-between gap-3">
-        {context.position && (
-          <strong className=" text-red-600 text-[18px]">experience</strong>
-        )}
-        <div className=" text-[14px] font-normal">
-          <p>{context.position}</p>
+        {context.experience?.map((exp, index) => (
+          <div key={index}>
+            {exp && (
+              <div>
+                <strong className=" text-red-600 text-[18px]">
+                  experience
+                </strong>
 
-          <p>{context.employer}</p>
-          <div className=" flex flex-row items-center gap-2 opacity-50">
-            <p>{context.startNumber}</p>
-            <p>{context.endNumber}</p>
+                <div className=" text-[14px] font-normal">
+                  <p>{exp.position}</p>
+
+                  <p>{exp.employer}</p>
+                  <div className=" flex flex-row items-center gap-2 opacity-50">
+                    <p>{exp.startNumber}</p>
+                    <p>{exp.endNumber}</p>
+                  </div>
+                </div>
+                <p className=" text-[14px] font-normal w-[600px]">
+                  {exp.description}
+                </p>
+
+                <div className=" w-[600px] h-[1px] bg-black my-6 opacity-50">
+                  {" "}
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-        <p className=" text-[14px] font-normal w-[600px]">
-          {context.description}
-        </p>
+        ))}
       </section>
-      {context.position && (
-        <div className=" w-[600px] h-[1px] bg-black my-6 opacity-50"> </div>
-      )}
+
       <section>
-        {context.school && (
-          <strong className=" text-red-600 text-[18px]">education</strong>
-        )}
-        <div className="flex flex-row items-center gap-2">
-          <p>{context.school}</p>
-          <p>{context.quality}</p>
-        </div>
-        <p>{context.graduation}</p>
-        <p className=" text-[14px] font-normal w-[600px]">
-          {context.workDescription}
-        </p>
+        {context.education.map((item, index) => (
+          <div key={index}>
+            {item && (
+              <div>
+                <strong className=" text-red-600 text-[18px]">education</strong>
+
+                <div className="flex flex-row items-center gap-2">
+                  <p>{item.school}</p>
+                  <p>{item.quality}</p>
+                </div>
+                <p>{item.graduation}</p>
+                <p className=" text-[14px] font-normal w-[600px]">
+                  {item.workDescription}
+                </p>
+              </div>
+            )}
+          </div>
+        ))}
       </section>
     </article>
   );

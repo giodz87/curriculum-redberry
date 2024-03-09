@@ -139,7 +139,7 @@ export default function Home() {
             <label className=" text-[14px] font-normal ">Phone Number</label>
             <input
               type="tel"
-              placeholder="123-456-789"
+              placeholder="123 456 789"
               pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
               {...register("number", {
                 required: "Please enter phone number.",
