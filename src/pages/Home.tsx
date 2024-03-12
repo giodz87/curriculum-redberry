@@ -54,8 +54,6 @@ export default function Home() {
 
               <input
                 type="text"
-                minLength={1}
-                maxLength={8}
                 {...register("firstName", {
                   required: "Please enter first name.",
                 })}
@@ -73,8 +71,6 @@ export default function Home() {
               <label className=" text-[14px] font-normal ">Last Name</label>
               <input
                 type="text"
-                minLength={1}
-                maxLength={10}
                 {...register("lastName", {
                   required: "Please enter last name.",
                 })}

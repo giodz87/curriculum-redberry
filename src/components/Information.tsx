@@ -6,10 +6,15 @@ export default function Information() {
     <article className="flex flex-col items-start justify-center ">
       <section className=" flex flex-row items-start justify-between w-[550px] ">
         <div className=" flex flex-col items-start justify-between gap-3">
-          <div className="flex flex-row items-center justify-center gap-2 text-[32px] font-bold text-red-600 ">
+          <div className="flex flex-wrap   items-baseline  justify-start gap-2 text-[32px] font-bold text-red-600   ">
             {" "}
-            <p>{context.name} </p>
-            <p> {context.lastName}</p>
+            <p className=" whitespace-normal  break-words max-w-[320px]">
+              {" "}
+              {context.name}
+            </p>
+            <p className=" whitespace-normal  break-words max-w-[320px]">
+              {context.lastName}
+            </p>
           </div>
           <div className="flex flex-col items-start justify-start">
             {context.email && (
@@ -30,7 +35,7 @@ export default function Information() {
             {context.about && (
               <div className=" text-[14px] w-[370px] font-normal">
                 <strong className=" text-red-600 text-[18px]">About Me</strong>
-                <p className=" text-[16px] font-normal w-[600px]">
+                <p className=" whitespace-normal break-words max-w-[350px] text-[16px] font-normal w-[600px] ">
                   {context.about}
                 </p>
               </div>
@@ -71,7 +76,7 @@ export default function Information() {
                     </p>
                   </div>
                 </div>
-                <p className=" text-[16px] font-normal w-[600px]">
+                <p className=" text-[16px] font-normal  break-words max-w-[600px]">
                   {exp.description}
                 </p>
 
@@ -95,10 +100,10 @@ export default function Information() {
                   <p>{item.school}</p>
                   <p>{item.quality}</p>
                 </div>
-                <p className="w-[360px] h-10  opacity-50 text-[12px]">
+                <p className="w-[360px] h-10  opacity-50 text-[12px] py-2">
                   {item.graduation}
                 </p>
-                <p className=" text-[16px] font-normal w-[600px]">
+                <p className=" text-[16px] font-normal break-words max-w-[600px]">
                   {item.workDescription}
                 </p>
 
