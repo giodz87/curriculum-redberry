@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useUserContext } from "../context";
 import Information from "../components/Information";
 import { useNavigate } from "react-router-dom";
+import InputMask from "react-input-mask";
 type InputsForm = {
   firstName: string;
   lastName: string;
@@ -139,14 +140,15 @@ export default function Home() {
 
           <div className="flex flex-col items-start gap-1 relative">
             <label className=" text-[14px] font-normal ">Phone Number</label>
-            <input
-              type="tel"
+            <InputMask
+              mask="999 999 9999"
               placeholder="123 456 789"
               pattern="[0-9]{3} [0-9]{3} [0-9]{4}"
               {...register("number", {
                 required: "Please enter phone number.",
               })}
               className="w-[380px] h-10 px-3"
+              value={context.number}
               onChange={(e) => context.setNumber(e.target.value)}
             />
             {errors.number && (
